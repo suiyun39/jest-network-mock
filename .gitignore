@@ -5,7 +5,7 @@
 *.iml
 out
 gen
-
+dist
 
 ### Node template
 # Logs
