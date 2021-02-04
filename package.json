@@ -1,0 +1,19 @@
+{
+  "name": "jest-network-mock",
+  "version": "0.0.1",
+  "description": "Network api mock for jest",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NoDocCat/jest-network-mock.git"
+  },
+  "keywords": [
+    "jest",
+    "jest-mock"
+  ],
+  "author": "NoDocCat <nodoccat@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NoDocCat/jest-network-mock/issues"
+  },
+  "homepage": "https://github.com/NoDocCat/jest-network-mock#readme"
+}
