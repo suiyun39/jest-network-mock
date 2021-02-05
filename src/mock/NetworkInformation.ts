@@ -1,12 +1,30 @@
 import { NetworkEvent } from "./NetworkEvent";
 
 type Listener = (event: NetworkEvent) => void;
+type EffectiveType = "slow-2g" | "2g" | "3g" | "4g";
+type NetworkType = "bluetooth" | "cellular" | "ethernet" | "none" | "wifi" | "wimax" | "other" | "unknown";
 
 export class NetworkInformation {
   private readonly eventMap: Map<string, Set<Listener>>;
 
+  // 网络信息状态
+  downlink: number;
+  downlinkMax: number;
+  effectiveType: EffectiveType;
+  rtt: number;
+  saveData: boolean;
+  type: NetworkType;
+
   constructor() {
     this.eventMap = new Map();
+
+    // 初始化状态
+    this.downlink = 1.45;
+    this.downlinkMax = 10;
+    this.effectiveType = "4g";
+    this.rtt = 300;
+    this.saveData = false;
+    this.type = "wifi";
   }
 
   addEventListener(type: string, listener: Listener, options?: boolean) {

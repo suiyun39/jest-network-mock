@@ -63,4 +63,21 @@ describe("NetworkInformation", () => {
     target.dispatchEvent(new Event("click"));
     expect(listener).toBeCalledTimes(0);
   });
+
+  it("验证初始化状态", done => {
+    const target = new NetworkInformation();
+
+    target.addEventListener("change", event => {
+      expect(event.target.downlink).toBe(1.45);
+      expect(event.target.downlinkMax).toBe(10);
+      expect(event.target.effectiveType).toBe("4g");
+      expect(event.target.rtt).toBe(300);
+      expect(event.target.saveData).toBe(false);
+      expect(event.target.type).toBe("wifi");
+
+      done();
+    });
+
+    target.dispatchEvent(new Event("change"));
+  });
 });
