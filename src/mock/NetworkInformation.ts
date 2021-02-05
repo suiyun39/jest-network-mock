@@ -27,7 +27,7 @@ export class NetworkInformation {
     this.type = "wifi";
   }
 
-  addEventListener(type: string, listener: Listener, options?: boolean) {
+  addEventListener(type: string, listener: Listener): void {
     if (!this.eventMap.has(type)) {
       this.eventMap.set(type, new Set());
     }
@@ -36,7 +36,7 @@ export class NetworkInformation {
     eventListener.add(listener);
   }
 
-  removeEventListener(type: string, listener: Listener, options?: boolean) {
+  removeEventListener(type: string, listener: Listener): void {
     if (!this.eventMap.has(type)) {
       return;
     }
@@ -45,7 +45,7 @@ export class NetworkInformation {
     eventListener.delete(listener);
   }
 
-  dispatchEvent(event: Event) {
+  dispatchEvent(event: Event): void {
     if (!this.eventMap.has(event.type)) {
       return;
     }
@@ -58,7 +58,7 @@ export class NetworkInformation {
   }
 
   // 仅供测试使用
-  getEventListener(type: string) {
+  getEventListener(type: string): Set<Listener> | undefined {
     return this.eventMap.get(type);
   }
 }

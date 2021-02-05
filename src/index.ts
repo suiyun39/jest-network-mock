@@ -6,9 +6,21 @@ declare global {
   }
 }
 
+type NetworkState = {
+  downlink?: number;
+  downlinkMax?: number;
+  effectiveType?: EffectiveType;
+  rtt?: number;
+  saveData?: boolean;
+  type?: NetworkType;
+};
+
 export class NetworkMock {
   // 执行 mock
-  static mock() {
+  static mock(): {
+    clean: () => void;
+    dispatch: (state: NetworkState) => void;
+  } {
     if ("connection" in navigator) {
       throw "navigator.connection is defined";
     }
@@ -21,14 +33,7 @@ export class NetworkMock {
     });
 
     // 对外提供的触发函数
-    const dispatch = (state: {
-      downlink?: number;
-      downlinkMax?: number;
-      effectiveType?: EffectiveType;
-      rtt?: number;
-      saveData?: boolean;
-      type?: NetworkType;
-    }) => {
+    const dispatch = (state: NetworkState) => {
       state.downlink && (target.downlink = state.downlink);
       state.downlinkMax && (target.downlinkMax = state.downlinkMax);
       state.effectiveType && (target.effectiveType = state.effectiveType);
