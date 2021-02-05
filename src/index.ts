@@ -1,4 +1,4 @@
-import { NetworkInformation } from "./mock/NetworkInformation";
+import { NetworkInformation, EffectiveType, NetworkType } from "./mock/NetworkInformation";
 
 declare global {
   interface Navigator {
@@ -20,8 +20,28 @@ export class NetworkMock {
       value: target,
     });
 
+    // 对外提供的触发函数
+    const dispatch = (state: {
+      downlink?: number;
+      downlinkMax?: number;
+      effectiveType?: EffectiveType;
+      rtt?: number;
+      saveData?: boolean;
+      type?: NetworkType;
+    }) => {
+      state.downlink && (target.downlink = state.downlink);
+      state.downlinkMax && (target.downlinkMax = state.downlinkMax);
+      state.effectiveType && (target.effectiveType = state.effectiveType);
+      state.rtt && (target.rtt = state.rtt);
+      state.saveData && (target.saveData = state.saveData);
+      state.type && (target.type = state.type);
+
+      target.dispatchEvent(new Event("change"));
+    };
+
     return {
       clean: this.clean,
+      dispatch,
     };
   }
 

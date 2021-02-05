@@ -1,8 +1,8 @@
 import { NetworkEvent } from "./NetworkEvent";
 
 type Listener = (event: NetworkEvent) => void;
-type EffectiveType = "slow-2g" | "2g" | "3g" | "4g";
-type NetworkType = "bluetooth" | "cellular" | "ethernet" | "none" | "wifi" | "wimax" | "other" | "unknown";
+export type EffectiveType = "slow-2g" | "2g" | "3g" | "4g";
+export type NetworkType = "bluetooth" | "cellular" | "ethernet" | "none" | "wifi" | "wimax" | "other" | "unknown";
 
 export class NetworkInformation {
   private readonly eventMap: Map<string, Set<Listener>>;
