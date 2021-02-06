@@ -2,14 +2,22 @@
   "name": "jest-network-mock",
   "version": "0.0.1",
   "description": "Network api mock for jest",
+  "main": "./dist/index.js",
+  "types": "./dist/types/index.d.ts",
   "scripts": {
-    "build": "yarn clean && tsc",
+    "build": "rollup -c --failAfterWarnings",
     "test": "jest",
     "lint": "yarn lint:prettier && yarn lint:eslint",
     "lint:prettier": "prettier --check {**/*,*}.{js,ts,json,md}",
-    "lint:eslint": "eslint {**/*,*}.{js,ts} --ignore-path ./.prettierignore",
-    "clean": "shx rm -rf ./dist"
+    "lint:eslint": "eslint {**/*,*}.{js,ts} --ignore-path ./.prettierignore"
   },
+  "files": [
+    "dist",
+    "src",
+    "LICENSE",
+    "package.json",
+    "README.md"
+  ],
   "lint-staged": {
     "*.{js,ts}": [
       "prettier --write",
@@ -40,6 +48,7 @@
   },
   "homepage": "https://github.com/NoDocCat/jest-network-mock#readme",
   "devDependencies": {
+    "@rollup/plugin-typescript": "^8.1.1",
     "@types/jest": "^26.0.20",
     "@typescript-eslint/eslint-plugin": "^4.14.2",
     "@typescript-eslint/parser": "^4.14.2",
@@ -49,7 +58,9 @@
     "jest": "^26.6.3",
     "lint-staged": "^10.5.3",
     "prettier": "^2.2.1",
-    "shx": "^0.3.3",
+    "rollup": "^2.38.5",
+    "rollup-plugin-cleaner": "^1.0.0",
+    "rollup-plugin-terser": "^7.0.2",
     "ts-jest": "^26.5.0",
     "typescript": "^4.1.3"
   }
