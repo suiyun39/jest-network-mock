@@ -1,6 +1,6 @@
 {
   "name": "jest-network-mock",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Network api mock for jest",
   "main": "./dist/index.js",
   "types": "./dist/types/index.d.ts",
