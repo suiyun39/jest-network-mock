@@ -1,4 +1,5 @@
 import { NetworkMock } from "./index";
+import { NetworkInformation } from "./NetworkInformation";
 
 describe("NetworkMock", () => {
   it("mock 和清理", () => {
@@ -15,12 +16,13 @@ describe("NetworkMock", () => {
     const { dispatch } = NetworkMock.mock();
 
     navigator.connection?.addEventListener("change", event => {
-      expect(event.target.downlink).toBe(5);
-      expect(event.target.downlinkMax).toBe(10);
-      expect(event.target.effectiveType).toBe("4g");
-      expect(event.target.rtt).toBe(500);
-      expect(event.target.saveData).toBe(true);
-      expect(event.target.type).toBe("bluetooth");
+      const target = event.target as NetworkInformation;
+      expect(target.downlink).toBe(5);
+      expect(target.downlinkMax).toBe(10);
+      expect(target.effectiveType).toBe("4g");
+      expect(target.rtt).toBe(500);
+      expect(target.saveData).toBe(true);
+      expect(target.type).toBe("bluetooth");
 
       NetworkMock.clean();
       done();

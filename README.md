@@ -33,3 +33,4 @@ test("test", () => {
 
 - [jsdom/jsdom](https://github.com/jsdom/jsdom)
 - [dyakovk/jest-matchmedia-mock](https://github.com/dyakovk/jest-matchmedia-mock)
+- [network-information-types](https://github.com/lacolaco/network-information-types)

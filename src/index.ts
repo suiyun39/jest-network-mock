@@ -1,4 +1,10 @@
-import { NetworkInformation, EffectiveType, NetworkType } from "./mock/NetworkInformation";
+import {
+  NetworkInformation,
+  EffectiveConnectionType,
+  ConnectionType,
+  Millisecond,
+  Megabit,
+} from "./NetworkInformation";
 
 declare global {
   interface Navigator {
@@ -7,12 +13,12 @@ declare global {
 }
 
 type NetworkState = {
-  downlink?: number;
-  downlinkMax?: number;
-  effectiveType?: EffectiveType;
-  rtt?: number;
+  downlink?: Megabit;
+  downlinkMax?: Megabit;
+  effectiveType?: EffectiveConnectionType;
+  rtt?: Millisecond;
   saveData?: boolean;
-  type?: NetworkType;
+  type?: ConnectionType;
 };
 
 export class NetworkMock {
