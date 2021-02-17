@@ -17,10 +17,7 @@ type NetworkState = {
 
 export class NetworkMock {
   // 执行 mock
-  static mock(): {
-    clean: () => void;
-    dispatch: (state: NetworkState) => void;
-  } {
+  static mock(): { dispatch: (state: NetworkState) => void } {
     if ("connection" in navigator) {
       throw "navigator.connection is defined";
     }
@@ -44,14 +41,11 @@ export class NetworkMock {
       target.dispatchEvent(new Event("change"));
     };
 
-    return {
-      clean: this.clean,
-      dispatch,
-    };
+    return { dispatch };
   }
 
   // 清理函数
-  private static clean() {
+  static clean(): void {
     if ("connection" in navigator) {
       delete navigator["connection"];
     }

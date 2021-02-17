@@ -4,15 +4,15 @@ describe("NetworkMock", () => {
   it("mock 和清理", () => {
     expect("connection" in navigator).toBeFalsy();
 
-    const { clean } = NetworkMock.mock();
+    NetworkMock.mock();
     expect("connection" in navigator).toBeTruthy();
 
-    clean();
+    NetworkMock.clean();
     expect("connection" in navigator).toBeFalsy();
   });
 
   it("dispatch", done => {
-    const { clean, dispatch } = NetworkMock.mock();
+    const { dispatch } = NetworkMock.mock();
 
     navigator.connection?.addEventListener("change", event => {
       expect(event.target.downlink).toBe(5);
@@ -22,7 +22,7 @@ describe("NetworkMock", () => {
       expect(event.target.saveData).toBe(true);
       expect(event.target.type).toBe("bluetooth");
 
-      clean();
+      NetworkMock.clean();
       done();
     });
 
