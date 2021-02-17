@@ -34,4 +34,20 @@ export class NetworkInformation extends EventTarget {
     this.saveData = false;
     this.type = "wifi";
   }
+
+  dispatchEvent(event: Event): boolean {
+    if (typeof this.onchange === "function" && event.type === "change") {
+      const eventData: Event = {
+        ...new Event("change"),
+        type: "change",
+        currentTarget: this,
+        srcElement: this,
+        target: this,
+      };
+
+      this.onchange.call(this, eventData);
+    }
+
+    return super.dispatchEvent(event);
+  }
 }

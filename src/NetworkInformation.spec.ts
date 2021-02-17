@@ -1,6 +1,6 @@
 import { NetworkInformation } from "./NetworkInformation";
 
-test("应能在创建时正确初始化预设值", () => {
+test("应能正确初始化预设值", () => {
   const information = new NetworkInformation();
 
   expect(information.downlink).toBe(1.45);
@@ -36,6 +36,18 @@ test("应在 listener 参数中包含当前状态", done => {
     expect(target.type).toBe("wifi");
     done();
   });
+
+  information.dispatchEvent(new Event("change"));
+});
+
+test("应在触发 change 事件时同时触发 onchange 属性上的函数", done => {
+  const information = new NetworkInformation();
+  information.onchange = event => {
+    const target = event.target as NetworkInformation;
+    expect(event.type).toBe("change");
+    expect(target.type).toBe("wifi");
+    done();
+  };
 
   information.dispatchEvent(new Event("change"));
 });
