@@ -14,7 +14,7 @@ test("应能正确执行 mock 和清理", () => {
 test("应在执行 dispatch 后改变网络状态", done => {
   NetworkMock.mock();
 
-  navigator.connection.addEventListener("change", (event: Event) => {
+  navigator.connection?.addEventListener("change", event => {
     const target = event.target as NetworkInformation;
     expect(target.downlink).toBe(5);
     expect(target.downlinkMax).toBe(10);
