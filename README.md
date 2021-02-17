@@ -21,11 +21,11 @@ npm install -D jest-network-mock
 import { NetworkMock } from "jest-network-mock";
 
 test("test", () => {
-  const { clean, dispatch } = NetworkMock.mock();
+  NetworkMock.mock();
   // ...
-  dispatch({ effectiveType: "4g", type: "bluetooth" });
+  NetworkMock.dispatch({ effectiveType: "4g", type: "bluetooth" });
   // ...
-  clean();
+  NetworkMock.clean();
 });
 ```
 
