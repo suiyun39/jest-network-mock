@@ -8,7 +8,9 @@ import {
 
 export class NetworkMock {
   static mock(): void {
-    if ("connection" in navigator) return;
+    if ("connection" in navigator) {
+      throw new Error("navigator.connection is defined");
+    }
 
     const information = new NetworkInformation();
 
@@ -32,16 +34,18 @@ export class NetworkMock {
     saveData?: boolean;
     type?: ConnectionType;
   }): void {
-    if (!("connection" in navigator)) return;
+    if (!("connection" in navigator)) {
+      throw new Error("navigator.connection is not defined");
+    }
 
     const target = navigator.connection as NetworkInformation;
 
-    state.downlink && (target.downlink = state.downlink);
-    state.downlinkMax && (target.downlinkMax = state.downlinkMax);
-    state.effectiveType && (target.effectiveType = state.effectiveType);
-    state.rtt && (target.rtt = state.rtt);
-    state.saveData && (target.saveData = state.saveData);
-    state.type && (target.type = state.type);
+    typeof state.downlink !== "undefined" && (target.downlink = state.downlink);
+    typeof state.downlinkMax !== "undefined" && (target.downlinkMax = state.downlinkMax);
+    typeof state.effectiveType !== "undefined" && (target.effectiveType = state.effectiveType);
+    typeof state.rtt !== "undefined" && (target.rtt = state.rtt);
+    typeof state.saveData !== "undefined" && (target.saveData = state.saveData);
+    typeof state.type !== "undefined" && (target.type = state.type);
 
     target.dispatchEvent(new Event("change"));
   }
