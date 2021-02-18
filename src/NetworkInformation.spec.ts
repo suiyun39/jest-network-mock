@@ -1,6 +1,6 @@
 import { NetworkInformation } from "./NetworkInformation";
 
-test("应能正确初始化预设值", () => {
+test("应正确初始化预设值", () => {
   const information = new NetworkInformation();
 
   expect(information.downlink).toBe(1.45);
@@ -11,7 +11,7 @@ test("应能正确初始化预设值", () => {
   expect(information.type).toBe("wifi");
 });
 
-test("应能正确的处理事件注册, 移除和触发", () => {
+test("应正确处理事件注册, 移除和触发", () => {
   const information = new NetworkInformation();
   const listener1 = jest.fn();
   const listener2 = jest.fn();
@@ -28,7 +28,7 @@ test("应能正确的处理事件注册, 移除和触发", () => {
   expect(listener2).toBeCalledTimes(2);
 });
 
-test("应在 listener 参数中包含当前状态", done => {
+test("应在事件回调中包含当前网络状态", done => {
   const information = new NetworkInformation();
 
   information.addEventListener("change", event => {
@@ -40,8 +40,9 @@ test("应在 listener 参数中包含当前状态", done => {
   information.dispatchEvent(new Event("change"));
 });
 
-test("应在触发 change 事件时同时触发 onchange 属性上的函数", done => {
+test("应在 change 事件触发时触发 onchange 属性绑定的函数", done => {
   const information = new NetworkInformation();
+
   information.onchange = event => {
     const target = event.target as NetworkInformation;
     expect(event.type).toBe("change");

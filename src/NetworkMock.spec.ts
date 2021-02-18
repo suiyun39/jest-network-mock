@@ -1,7 +1,7 @@
 import { NetworkMock } from "./NetworkMock";
 import { NetworkInformation } from "./NetworkInformation";
 
-test("应能正确执行 mock 和清理", () => {
+test("应正确添加和移除 navigator.connection", () => {
   expect("connection" in navigator).toBeFalsy();
 
   NetworkMock.mock();
@@ -11,7 +11,7 @@ test("应能正确执行 mock 和清理", () => {
   expect("connection" in navigator).toBeFalsy();
 });
 
-test("应在执行 dispatch 后改变网络状态", done => {
+test("dispatch 方法应能改变网络状态并触发 change 事件", done => {
   NetworkMock.mock();
 
   navigator.connection?.addEventListener("change", event => {
