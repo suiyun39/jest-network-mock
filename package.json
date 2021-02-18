@@ -9,7 +9,10 @@
     "test": "jest",
     "lint": "yarn lint:prettier && yarn lint:eslint",
     "lint:prettier": "prettier --check {**/*,*}.{js,ts,json,md} --ignore-path ./.gitignore",
-    "lint:eslint": "eslint {**/*,*}.{js,ts} --ignore-path ./.gitignore"
+    "lint:eslint": "eslint {**/*,*}.{js,ts} --ignore-path ./.gitignore",
+    "postinstall": "husky install",
+    "prepublishOnly": "pinst --disable",
+    "postpublish": "pinst --enable"
   },
   "files": [
     "dist",
@@ -26,12 +29,6 @@
     "*.{json,md}": [
       "prettier --write"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "yarn lint"
-    }
   },
   "repository": {
     "type": "git",
@@ -53,9 +50,10 @@
     "@typescript-eslint/parser": "^4.14.2",
     "eslint": "^7.19.0",
     "eslint-config-prettier": "^7.2.0",
-    "husky": "^4.3.8",
+    "husky": "^5.0.9",
     "jest": "^26.6.3",
     "lint-staged": "^10.5.3",
+    "pinst": "^2.1.4",
     "prettier": "^2.2.1",
     "shx": "^0.3.3",
     "ts-jest": "^26.5.0",
