@@ -8,8 +8,8 @@
     "build": "shx rm -rf ./dist && tsc -b ./tsconfig.prod.json",
     "test": "jest",
     "lint": "yarn lint:prettier && yarn lint:eslint",
-    "lint:prettier": "prettier --check {**/*,*}.{js,ts,json,md}",
-    "lint:eslint": "eslint {**/*,*}.{js,ts} --ignore-path ./.prettierignore"
+    "lint:prettier": "prettier --check {**/*,*}.{js,ts,json,md} --ignore-path ./.gitignore",
+    "lint:eslint": "eslint {**/*,*}.{js,ts} --ignore-path ./.gitignore"
   },
   "files": [
     "dist",
