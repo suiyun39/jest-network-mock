@@ -6,6 +6,15 @@ import {
   NetworkInformation,
 } from "./NetworkInformation";
 
+type NetworkState = {
+  downlink?: Megabit;
+  downlinkMax?: Megabit;
+  effectiveType?: EffectiveConnectionType;
+  rtt?: Millisecond;
+  saveData?: boolean;
+  type?: ConnectionType;
+};
+
 export class NetworkMock {
   static mock(): void {
     if ("connection" in navigator) {
@@ -26,14 +35,7 @@ export class NetworkMock {
     }
   }
 
-  static dispatch(state: {
-    downlink?: Megabit;
-    downlinkMax?: Megabit;
-    effectiveType?: EffectiveConnectionType;
-    rtt?: Millisecond;
-    saveData?: boolean;
-    type?: ConnectionType;
-  }): void {
+  static dispatch(state: NetworkState): boolean {
     if (!("connection" in navigator)) {
       throw new Error("navigator.connection is not defined");
     }
@@ -47,6 +49,6 @@ export class NetworkMock {
     typeof state.saveData !== "undefined" && (target.saveData = state.saveData);
     typeof state.type !== "undefined" && (target.type = state.type);
 
-    target.dispatchEvent(new Event("change"));
+    return target.dispatchEvent(new Event("change"));
   }
 }
