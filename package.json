@@ -8,14 +8,12 @@
     "build": "shx rm -rf ./dist && tsc -b ./tsconfig.prod.json",
     "test": "jest",
     "lint": "prettier -c -u . && eslint .",
-    "lint:eslint": "eslint {**/*,*}.{js,ts} --ignore-path ./.gitignore",
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable"
   },
   "files": [
     "dist",
-    "src",
     "LICENSE",
     "package.json",
     "README.md"
