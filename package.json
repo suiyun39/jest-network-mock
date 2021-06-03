@@ -8,7 +8,9 @@
     "build": "shx rm -rf ./dist && tsc -b ./tsconfig.prod.json",
     "test": "jest",
     "lint": "prettier -c -u . && eslint .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "version": "npm run lint && npm run test",
+    "prepublishOnly": "npm run build"
   },
   "files": [
     "dist",
