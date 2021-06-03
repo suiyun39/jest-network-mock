@@ -42,12 +42,12 @@ export class NetworkMock {
 
     const target = navigator.connection as NetworkInformation;
 
-    typeof state.downlink !== "undefined" && (target.downlink = state.downlink);
-    typeof state.downlinkMax !== "undefined" && (target.downlinkMax = state.downlinkMax);
-    typeof state.effectiveType !== "undefined" && (target.effectiveType = state.effectiveType);
-    typeof state.rtt !== "undefined" && (target.rtt = state.rtt);
-    typeof state.saveData !== "undefined" && (target.saveData = state.saveData);
-    typeof state.type !== "undefined" && (target.type = state.type);
+    target.downlink = state.downlink ?? target.downlink;
+    target.downlinkMax = state.downlinkMax ?? target.downlinkMax;
+    target.effectiveType = state.effectiveType ?? target.effectiveType;
+    target.rtt = state.rtt ?? target.rtt;
+    target.saveData = state.saveData ?? target.saveData;
+    target.type = state.type ?? target.type;
 
     return target.dispatchEvent(new Event("change"));
   }
