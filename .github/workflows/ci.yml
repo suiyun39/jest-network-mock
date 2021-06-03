@@ -20,29 +20,26 @@ jobs:
       - name: Setup nodejs
         uses: actions/setup-node@v2
         with:
-          node-version: 15
-
-      - name: Get yarn cache path
-        id: yarn-cache-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+          node-version: 16
 
       - name: Cache depend
         uses: actions/cache@v2.1.4
         with:
-          path: ${{ steps.yarn-cache-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
 
       - name: Install depend
-        run: yarn install
+        run: npm ci
 
       - name: Run code lint
-        run: yarn run lint
+        run: npm run lint
 
       - name: Run code test
-        run: yarn run test
+        run: npm run test
 
       - name: Run test compile
-        run: yarn run build
+        run: npm run build
 
       - name: Upload test coverage to codacy
         run: bash <(curl -Ls https://coverage.codacy.com/get.sh) report
