@@ -1,4 +1,4 @@
-import { NetworkInformation } from "./NetworkInformation";
+import { NetworkInformation } from "./information";
 
 declare global {
   // eslint-disable-next-line

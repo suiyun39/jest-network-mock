@@ -1,4 +1,4 @@
-import { NetworkInformation } from "./NetworkInformation";
+import { NetworkInformation } from "./information";
 
 test("应正确初始化预设值", () => {
   const information = new NetworkInformation();

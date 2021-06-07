@@ -1,1 +1,1 @@
-export * from "./NetworkMock";
+export * from "./mock";

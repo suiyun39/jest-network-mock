@@ -1,10 +1,4 @@
-import {
-  ConnectionType,
-  EffectiveConnectionType,
-  Megabit,
-  Millisecond,
-  NetworkInformation,
-} from "./NetworkInformation";
+import { ConnectionType, EffectiveConnectionType, Megabit, Millisecond, NetworkInformation } from "./information";
 
 type NetworkState = {
   downlink?: Megabit;

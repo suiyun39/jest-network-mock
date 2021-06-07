@@ -1,5 +1,5 @@
-import { NetworkMock } from "./NetworkMock";
-import { NetworkInformation } from "./NetworkInformation";
+import { NetworkMock } from "./mock";
+import { NetworkInformation } from "./information";
 
 test("应正确添加和移除 navigator.connection", () => {
   expect("connection" in navigator).toBeFalsy();
