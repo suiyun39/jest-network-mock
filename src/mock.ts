@@ -1,13 +1,13 @@
 import { ConnectionType, EffectiveConnectionType, Megabit, Millisecond, NetworkInformation } from "./information";
 
-type NetworkState = {
-  downlink?: Megabit;
-  downlinkMax?: Megabit;
-  effectiveType?: EffectiveConnectionType;
-  rtt?: Millisecond;
-  saveData?: boolean;
-  type?: ConnectionType;
-};
+type NetworkState = Partial<{
+  downlink: Megabit;
+  downlinkMax: Megabit;
+  effectiveType: EffectiveConnectionType;
+  rtt: Millisecond;
+  saveData: boolean;
+  type: ConnectionType;
+}>;
 
 export class NetworkMock {
   static mock(): void {
