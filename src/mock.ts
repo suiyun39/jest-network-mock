@@ -29,19 +29,19 @@ export class NetworkMock {
     }
   }
 
-  static dispatch(state: NetworkState): boolean {
+  static dispatch(state?: NetworkState): boolean {
     if (!("connection" in navigator)) {
       throw new Error("navigator.connection is not defined");
     }
 
     const target = navigator.connection as NetworkInformation;
 
-    target.downlink = state.downlink ?? target.downlink;
-    target.downlinkMax = state.downlinkMax ?? target.downlinkMax;
-    target.effectiveType = state.effectiveType ?? target.effectiveType;
-    target.rtt = state.rtt ?? target.rtt;
-    target.saveData = state.saveData ?? target.saveData;
-    target.type = state.type ?? target.type;
+    target.downlink = state?.downlink ?? target.downlink;
+    target.downlinkMax = state?.downlinkMax ?? target.downlinkMax;
+    target.effectiveType = state?.effectiveType ?? target.effectiveType;
+    target.rtt = state?.rtt ?? target.rtt;
+    target.saveData = state?.saveData ?? target.saveData;
+    target.type = state?.type ?? target.type;
 
     return target.dispatchEvent(new Event("change"));
   }

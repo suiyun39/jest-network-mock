@@ -31,7 +31,7 @@ test("应在执行 dispatch 方法时触发注册的事件", done => {
     done();
   });
 
-  NetworkMock.dispatch({});
+  NetworkMock.dispatch();
 });
 
 test("应在执行 dispatch 方法时正确更新状态值", done => {
@@ -72,7 +72,7 @@ test("应在重复 mock 时抛出异常", () => {
 test("应在执行 dispatch 时检查 mock 状态", () => {
   const runner = () => {
     NetworkMock.clean();
-    NetworkMock.dispatch({});
+    NetworkMock.dispatch();
   };
 
   expect(runner).toThrow("navigator.connection is not defined");
