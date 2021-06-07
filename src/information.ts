@@ -14,38 +14,24 @@ export type Megabit = number;
 export type Millisecond = number;
 
 export class NetworkInformation extends EventTarget {
-  downlink: Megabit;
-  downlinkMax: Megabit;
-  effectiveType: EffectiveConnectionType;
-  onchange: EventListener | undefined;
-  rtt: Millisecond;
-  saveData: boolean;
-  type: ConnectionType;
+  downlink: Megabit = 1.45;
+  downlinkMax: Megabit = 10;
+  effectiveType: EffectiveConnectionType = "4g";
+  onchange: EventListener | undefined = undefined;
+  rtt: Millisecond = 300;
+  saveData = false;
+  type: ConnectionType = "wifi";
 
   constructor() {
     super();
-
-    // default value
-    this.downlink = 1.45;
-    this.downlinkMax = 10;
-    this.effectiveType = "4g";
-    this.onchange = undefined;
-    this.rtt = 300;
-    this.saveData = false;
-    this.type = "wifi";
   }
 
   dispatchEvent(event: Event): boolean {
-    if (typeof this.onchange === "function" && event.type === "change") {
-      const eventData: Event = {
-        ...new Event("change"),
-        type: "change",
-        currentTarget: this,
-        srcElement: this,
-        target: this,
-      };
+    if (this.onchange && event.type === "change") {
+      const changeEvent: Event = { ...new Event("change"), type: "change" };
+      const evt: Event = { ...changeEvent, currentTarget: this, srcElement: this, target: this };
 
-      this.onchange.call(this, eventData);
+      this.onchange.call(this, evt);
     }
 
     return super.dispatchEvent(event);
