@@ -20,10 +20,7 @@
   ],
   "lint-staged": {
     "**/*": "prettier -w -u",
-    "*.{js,jsx,ts,tsx}": [
-      "prettier -w -u",
-      "eslint --fix"
-    ]
+    "*.{js,ts}": "eslint --fix"
   },
   "repository": {
     "type": "git",
