@@ -4,8 +4,7 @@ Network api mock for jest
 
 ![npm](https://img.shields.io/npm/v/jest-network-mock?logo=npm&style=for-the-badge)
 ![CI](https://img.shields.io/github/workflow/status/nodoccat/jest-network-mock/CI?label=CI&logo=github&style=for-the-badge)
-![code quality](https://img.shields.io/codacy/grade/2e75b66dc8ca44b6a3a2d6c5ca3755e5?logo=codacy&style=for-the-badge)
-![coverage](https://img.shields.io/codacy/coverage/2e75b66dc8ca44b6a3a2d6c5ca3755e5?logo=codacy&style=for-the-badge)
+![COVERAGE](https://img.shields.io/codecov/c/github/nodoccat/jest-network-mock?logo=codecov&style=for-the-badge)
 
 ## Install
 
