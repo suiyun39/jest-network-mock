@@ -25,7 +25,7 @@ export class NetworkMock {
 
   static clean(): void {
     if ("connection" in navigator) {
-      delete navigator["connection"];
+      delete (navigator as never)["connection"];
     }
   }
 
