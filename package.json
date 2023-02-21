@@ -4,6 +4,7 @@
   "version": "1.2.3",
   "description": "NetworkInformation API mock for Jest",
   "scripts": {
+    "build": "tsc && tsup",
     "lint": "eslint .",
     "prepare": "husky install"
   },
@@ -43,6 +44,7 @@
     "eslint-config-standard": "^17.0.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.2",
+    "tsup": "^6.6.3",
     "typescript": "^4.9.5"
   },
   "lint-staged": {
