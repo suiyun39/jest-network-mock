@@ -3,7 +3,10 @@
   "type": "module",
   "version": "1.2.3",
   "description": "NetworkInformation API mock for Jest",
-  "scripts": {},
+  "scripts": {
+    "lint": "eslint .",
+    "prepare": "husky install"
+  },
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -32,5 +35,17 @@
     "jest-mock",
     "jsdom"
   ],
-  "packageManager": "pnpm@7.27.1"
+  "packageManager": "pnpm@7.27.1",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.53.0",
+    "@typescript-eslint/parser": "^5.53.0",
+    "eslint": "^8.34.0",
+    "eslint-config-standard": "^17.0.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.2",
+    "typescript": "^4.9.5"
+  },
+  "lint-staged": {
+    "*.{js,ts}": "eslint --fix"
+  }
 }
