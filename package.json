@@ -1,0 +1,36 @@
+{
+  "name": "jest-network-mock",
+  "type": "module",
+  "version": "1.2.3",
+  "description": "NetworkInformation API mock for Jest",
+  "scripts": {},
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "author": "NoDocCat <nodoccat@outlook.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/NoDocCat/jest-network-mock#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NoDocCat/jest-network-mock.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NoDocCat/jest-network-mock/issues"
+  },
+  "keywords": [
+    "jest",
+    "jest-mock",
+    "jsdom"
+  ],
+  "packageManager": "pnpm@7.27.1"
+}
