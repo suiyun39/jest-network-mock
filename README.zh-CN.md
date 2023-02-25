@@ -1,16 +1,16 @@
 # jest-network-mock
 
-NetworkInformation API mock for Jest
+用于 Jest 的 NetworkInformation API 模拟
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
-## Installation
+## 安装
 
 ```bash
 pnpm add -D jest-network-mock
 ```
 
-## Example
+## 示例
 
 ```typescript
 import { enableMock, disableMock, dispatch } from 'jest-network-mock'
@@ -31,17 +31,17 @@ test('example', done => {
 
 ### enableMock
 
-Enable mock for `navigator.connection`
+启用 `navigator.connection` 模拟
 
 ```typescript
 type enableMock = (preset?: ConnectionInfo) => void
 ```
 
-You can set `navigator.connection` initial state with `preset`, By default use `PRESET_4G`
+你可以使用 `preset` 设置 `navigator.connection` 的初始状态，默认使用 `PRESET_4G`
 
 ### disableMock
 
-Disable mock for `navigator.connection`
+禁用 `navigator.connection` 模拟
 
 ```typescript
 type disableMock = () => void
@@ -49,17 +49,17 @@ type disableMock = () => void
 
 ### dispatch
 
-Change `navigator.connection` state and trigger `change` event
+修改 `navigator.connection` 状态并触发 `change` 事件
 
 ```typescript
 type dispatch = (state?: Partial<ConnectionInfo>) => boolean
 ```
 
-You can also use preset here
+你也可以在这里使用预设
 
-## Preset
+## 预设
 
-We have some presets for you, you can use it when call `enableMock` and `dispatch`:
+我们提供了一些预设，你可以在调用 `enableMock` 和 `dispatch` 时使用：
 
 |               | PRESET_4G | PRESET_FAST_3G | PRESET_SLOW_3G | PRESET_OFFLINE |
 |---------------|-----------|----------------|----------------|----------------|
@@ -70,7 +70,7 @@ We have some presets for you, you can use it when call `enableMock` and `dispatc
 | saveData      | false     | false          | false          | false          |
 | type          | `wifi`    | `wifi`         | `wifi`         | `none`         |
 
-## Reference & Thanks
+## 参考与感谢
 
 - [jest-fetch-mock](https://github.com/jefflau/jest-fetch-mock)
 - [network-information-types](https://github.com/lacolaco/network-information-types)
