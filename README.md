@@ -4,6 +4,10 @@ NetworkInformation API mock for Jest
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
+![npm](https://img.shields.io/npm/v/jest-network-mock?logo=npm&style=for-the-badge)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/nodoccat/jest-network-mock/ci.yml?label=CI&logo=github-actions&logoColor=white&style=for-the-badge)
+![Codecov](https://img.shields.io/codecov/c/github/nodoccat/jest-network-mock?logo=codecov&style=for-the-badge)
+
 ## Installation
 
 ```bash
