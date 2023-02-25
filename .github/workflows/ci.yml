@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  - push
+  - pull_request
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3.3.0
+
+      - uses: pnpm/action-setup@v2.2.4
+      - uses: actions/setup-node@v3.6.0
+        with:
+          node-version: 18
+          cache: pnpm
+
+      - run: pnpm install
+      - run: pnpm run lint
+      - run: pnpm run test
+      - run: pnpm run build
+
+      - uses: codecov/codecov-action@v3.1.1
