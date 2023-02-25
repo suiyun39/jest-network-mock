@@ -1,5 +1,3 @@
-import { PRESET_4G } from './preset'
-
 type EffectiveConnectionType = 'slow-2g' | '2g' | '3g' | '4g'
 type ConnectionType = 'bluetooth' | 'cellular' | 'ethernet' | 'none' | 'wifi' | 'wimax' | 'other' | 'unknown'
 
@@ -13,14 +11,24 @@ export interface ConnectionInfo {
 }
 
 export class NetworkInformation extends EventTarget implements ConnectionInfo {
-  downlink = PRESET_4G.downlink
-  downlinkMax = PRESET_4G.downlinkMax
-  effectiveType = PRESET_4G.effectiveType
-  rtt = PRESET_4G.rtt
-  saveData = PRESET_4G.saveData
-  type = PRESET_4G.type
+  downlink: number
+  downlinkMax: number
+  effectiveType: EffectiveConnectionType
+  rtt: number
+  saveData: boolean
+  type: ConnectionType
 
   onchange: EventListener | null = null
+
+  constructor (preset: ConnectionInfo) {
+    super()
+    this.downlink = preset.downlink
+    this.downlinkMax = preset.downlinkMax
+    this.effectiveType = preset.effectiveType
+    this.rtt = preset.rtt
+    this.saveData = preset.saveData
+    this.type = preset.type
+  }
 
   dispatchEvent (event: Event) {
     if (event.type === 'change') {
