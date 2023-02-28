@@ -32,7 +32,7 @@ export class NetworkInformation extends EventTarget implements ConnectionInfo {
 
   dispatchEvent (event: Event) {
     if (event.type === 'change') {
-      this.onchange?.({ ...event, type: 'change', currentTarget: this, target: this })
+      this.onchange?.({ ...event, currentTarget: this, target: this })
     }
     return super.dispatchEvent(event)
   }
