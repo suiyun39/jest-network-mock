@@ -8,11 +8,22 @@
     ":labels(dependencies)"
   ],
   "rebaseWhen": "never",
+  "rangeStrategy": "bump",
   "packageRules": [
     {
-      "groupName": "{{manager}} dependencies",
-      "matchPackagePatterns": [
-        "*"
+      "groupName": "npm dependencies",
+      "matchManagers": [
+        "npm"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ]
+    },
+    {
+      "groupName": "github-actions dependencies",
+      "matchManagers": [
+        "github-actions"
       ],
       "matchUpdateTypes": [
         "minor",
