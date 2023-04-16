@@ -37,7 +37,7 @@
     "jest-mock",
     "jsdom"
   ],
-  "packageManager": "pnpm@7.30.0",
+  "packageManager": "pnpm@8.2.0",
   "devDependencies": {
     "@types/jest": "^29.4.0",
     "@types/node": "^18.14.0",
