@@ -22,15 +22,15 @@
   "files": [
     "dist"
   ],
-  "author": "NoDocCat <nodoccat@outlook.com>",
+  "author": "suiyun39 <suiyun39@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/NoDocCat/jest-network-mock#readme",
+  "homepage": "https://github.com/suiyun39/jest-network-mock#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NoDocCat/jest-network-mock.git"
+    "url": "git+https://github.com/suiyun39/jest-network-mock.git"
   },
   "bugs": {
-    "url": "https://github.com/NoDocCat/jest-network-mock/issues"
+    "url": "https://github.com/suiyun39/jest-network-mock/issues"
   },
   "keywords": [
     "jest",
