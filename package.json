@@ -1,16 +1,23 @@
 {
   "name": "jest-network-mock",
-  "type": "module",
   "version": "2.0.0",
   "description": "NetworkInformation API mock for Jest",
+  "repository": "github:suiyun39/jest-network-mock",
+  "license": "MIT",
+  "keywords": [
+    "jest",
+    "jest-mock",
+    "jsdom"
+  ],
+  "type": "module",
+  "packageManager": "pnpm@8.12.0",
   "scripts": {
     "build": "tsc && tsup",
     "lint": "eslint .",
     "test": "jest",
     "prepare": "husky install"
   },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
+  "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
@@ -22,22 +29,6 @@
   "files": [
     "dist"
   ],
-  "author": "suiyun39 <suiyun39@gmail.com>",
-  "license": "MIT",
-  "homepage": "https://github.com/suiyun39/jest-network-mock#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/suiyun39/jest-network-mock.git"
-  },
-  "bugs": {
-    "url": "https://github.com/suiyun39/jest-network-mock/issues"
-  },
-  "keywords": [
-    "jest",
-    "jest-mock",
-    "jsdom"
-  ],
-  "packageManager": "pnpm@8.5.0",
   "devDependencies": {
     "@types/jest": "^29.5.1",
     "@types/node": "^18.16.8",
