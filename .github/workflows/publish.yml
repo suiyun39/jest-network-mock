@@ -23,3 +23,16 @@ jobs:
       - run: pnpm publish --access public --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Get Release Name
+        id: release_name
+        run: |
+          RELEASE_NAME=${{ github.ref }}
+          RELEASE_NAME=${RELEASE_NAME#refs/tags/v}
+          echo "name=${RELEASE_NAME}" >> "$GITHUB_OUTPUT"
+
+      - uses: softprops/action-gh-release@v2
+        with:
+          name: ${{ steps.release_name.outputs.name }}
+          body: 'draft'
+          draft: true
