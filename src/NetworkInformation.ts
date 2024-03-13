@@ -11,16 +11,15 @@ export interface ConnectionInfo {
 }
 
 export class NetworkInformation extends EventTarget implements ConnectionInfo {
-  downlink: number
-  downlinkMax: number
-  effectiveType: EffectiveConnectionType
-  rtt: number
-  saveData: boolean
-  type: ConnectionType
+  public downlink: number
+  public downlinkMax: number
+  public effectiveType: EffectiveConnectionType
+  public rtt: number
+  public saveData: boolean
+  public type: ConnectionType
+  public onchange: EventListener | null = null
 
-  onchange: EventListener | null = null
-
-  constructor (preset: ConnectionInfo) {
+  public constructor(preset: ConnectionInfo) {
     super()
     this.downlink = preset.downlink
     this.downlinkMax = preset.downlinkMax
@@ -30,7 +29,7 @@ export class NetworkInformation extends EventTarget implements ConnectionInfo {
     this.type = preset.type
   }
 
-  dispatchEvent (event: Event) {
+  public dispatchEvent(event: Event) {
     if (event.type === 'change') {
       this.onchange?.({ ...event, currentTarget: this, target: this })
     }

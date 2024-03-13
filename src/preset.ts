@@ -1,4 +1,4 @@
-import { ConnectionInfo } from './NetworkInformation'
+import type { ConnectionInfo } from './NetworkInformation'
 
 export const PRESET_4G: ConnectionInfo = {
   downlink: 10,

@@ -1,4 +1,4 @@
-import { NetworkInformation, ConnectionInfo } from './NetworkInformation'
+import { NetworkInformation, type ConnectionInfo } from './NetworkInformation'
 import { PRESET_4G } from './preset'
 
 interface Navigator {
@@ -7,15 +7,15 @@ interface Navigator {
 
 declare const navigator: Navigator
 
-export function enableMock (preset: ConnectionInfo = PRESET_4G) {
+export function enableMock(preset: ConnectionInfo = PRESET_4G) {
   navigator.connection = new NetworkInformation(preset)
 }
 
-export function disableMock () {
+export function disableMock() {
   delete navigator.connection
 }
 
-export function dispatch (state?: Partial<ConnectionInfo>) {
+export function dispatch(state?: Partial<ConnectionInfo>) {
   if (!navigator.connection) {
     console.error('Please enable mock first.')
     return false

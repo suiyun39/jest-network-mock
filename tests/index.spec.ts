@@ -1,4 +1,5 @@
-import { disableMock, dispatch, enableMock, NetworkInformation, PRESET_OFFLINE } from '../src'
+import { afterEach, test, expect, jest } from '@jest/globals'
+import { disableMock, dispatch, enableMock, type NetworkInformation, PRESET_OFFLINE } from '../src'
 
 interface Navigator {
   connection: NetworkInformation
@@ -19,12 +20,12 @@ test('应正确添加和删除 navigator.connection', () => {
 test('使用预设时应正确设置状态', () => {
   enableMock(PRESET_OFFLINE)
 
-  expect(navigator.connection?.downlink).toBe(PRESET_OFFLINE.downlink)
-  expect(navigator.connection?.downlinkMax).toBe(PRESET_OFFLINE.downlinkMax)
-  expect(navigator.connection?.effectiveType).toBe(PRESET_OFFLINE.effectiveType)
-  expect(navigator.connection?.rtt).toBe(PRESET_OFFLINE.rtt)
-  expect(navigator.connection?.saveData).toBe(PRESET_OFFLINE.saveData)
-  expect(navigator.connection?.type).toBe(PRESET_OFFLINE.type)
+  expect(navigator.connection.downlink).toBe(PRESET_OFFLINE.downlink)
+  expect(navigator.connection.downlinkMax).toBe(PRESET_OFFLINE.downlinkMax)
+  expect(navigator.connection.effectiveType).toBe(PRESET_OFFLINE.effectiveType)
+  expect(navigator.connection.rtt).toBe(PRESET_OFFLINE.rtt)
+  expect(navigator.connection.saveData).toBe(PRESET_OFFLINE.saveData)
+  expect(navigator.connection.type).toBe(PRESET_OFFLINE.type)
 })
 
 test('应在 dispatch 时更新状态并触发事件', done => {

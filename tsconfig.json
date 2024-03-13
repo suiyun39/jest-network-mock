@@ -11,7 +11,9 @@
     "skipLibCheck": true
   },
   "include": [
-    "src"
+    "src",
+    "tests",
+    "tsup.config.ts"
   ],
   "exclude": [
     "node_modules"
